@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ArtzyFoto — Automotive photography, Tallinn</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Michroma&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<div class="cur" id="cur"></div>
+
+<header><div class="wrap">
+  <a class="mark" href="index.html"><img src="img/logo.png" alt=""><b>ArtzyFoto <span>/</span> Automotive</b></a>
+  <nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a><a href="https://instagram.com/artzy_foto" target="_blank" rel="noopener">Instagram</a></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Cars,<br>shot <em>right.</em></h1>
+      <p style="margin-top:22px">Location, night and rolling work for owners who care about the angle. Based in Tallinn — travels for the right car.</p>
+    </div>
+    <div class="meta">
+      <span>Recent <b>W140 S420 · Freedom Square</b></span>
+      <span>Frames on site <b>7</b></span>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="eyebrow"><span>Selected work · one tile per car</span><kbd>hover to disturb · click for more</kbd></div>
+    <div class="grid home" id="grid">
+      <!-- data-src is the image base name; the script picks -800 or -2000 by tile size.
+           data-focus is the crop focal point (x y, 0–1 from top-left), like CSS object-position. -->
+      <a class="tile" href="w140.html" data-scene="4" data-src="img/w140-2" data-focus="0.55 0.55"><canvas></canvas><span class="n">W140</span><div class="cap"><h2>S420</h2><small>2 frames · Night</small></div></a>
+      <a class="tile" href="c43.html" data-scene="3" data-src="img/c43-2" data-focus="0.3 0.5"><canvas></canvas><span class="n">S205</span><div class="cap"><h2>C43 AMG</h2><small>2 frames · Dusk</small></div></a>
+      <a class="tile" href="e36.html" data-scene="3" data-src="img/e36" data-focus="0.6 0.5"><canvas></canvas><span class="n">E36</span><div class="cap"><h2>M3</h2><small>1 frame · Estoril</small></div></a>
+      <a class="tile" href="wrx.html" data-scene="0" data-src="img/wrx" data-focus="0.5 0.6"><canvas></canvas><span class="n">GC8</span><div class="cap"><h2>Impreza WRX</h2><small>1 frame · Golden hour</small></div></a>
+      <a class="tile" href="kiirabi.html" data-scene="1" data-src="img/ambulance" data-focus="0.5 0.5"><canvas></canvas><span class="n">W907</span><div class="cap"><h2>Kiirabi</h2><small>1 frame · Rolling</small></div></a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div>
+      <h3>The car is the client.</h3>
+      <p>Most of this work happens at dusk and after dark, when the paint stops fighting the sky and the city does the lighting. A W140 in front of a floodlit church says more than a W140 on a white backdrop. Rolling shots are panned from a chase car, never faked in Photoshop.</p>
+      <p>Owners get a set they'll actually print. Dealers get consistent, listing-ready frames. Brands get whatever the brief says, on time.</p>
+    </div>
+    <div>
+      <figure class="mascot">
+        <img src="img/logo.png" alt="ArtzyFoto mascot: a grinning dog in a Brazil shirt holding a camera">
+        <figcaption><b>ArtzyFoto</b>Est. Tallinn<br>Shoots what moves</figcaption>
+      </figure>
+      <dl class="specs">
+        <div><dt>Delivery</dt><dd>10–14 days · 40–60 edited frames · RAW on request</dd></div>
+        <div><dt>Formats</dt><dd>3:2 and 4:5 crops, 16:9 for web, print-ready TIFF</dd></div>
+        <div><dt>Kit</dt><dd>Full-frame mirrorless, 24–70 / 70–200, CPL on everything</dd></div>
+        <div><dt>Area</dt><dd>Estonia, Latvia, Finland · further by arrangement</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3><a href="mailto:habichtart9@gmail.com">Book a shoot</a></h3>
+    <div class="side"><a href="mailto:habichtart9@gmail.com">habichtart9@gmail.com</a><a href="https://instagram.com/artzy_foto" target="_blank" rel="noopener">@artzy_foto</a><span>Tallinn, Estonia</span></div>
+  </section>
+  <footer><span>© 2026 ArtzyFoto</span><span>Tallinn · Estonia</span></footer>
+</main>
+
+<script src="tiles.js"></script>
