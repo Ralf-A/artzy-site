@@ -4,9 +4,10 @@
   /* ---------- cursor ---------- */
   const cur = document.getElementById('cur');
   let cx = innerWidth/2, cy = innerHeight/2, tx = cx, ty = cy;
-  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
+  const mouse = e => e.pointerType === 'mouse'; // touch and pen never drive the custom cursor
+  addEventListener('pointermove', e => { if(mouse(e)){ tx = e.clientX; ty = e.clientY; } });
   document.querySelectorAll('.tile').forEach(t => {
-    t.addEventListener('pointerenter', () => cur.classList.add('big'));
+    t.addEventListener('pointerenter', e => { if(mouse(e)) cur.classList.add('big'); });
     t.addEventListener('pointerleave', () => cur.classList.remove('big'));
   });
 
@@ -114,6 +115,7 @@
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
       this.m = [0.5,0.5]; this.tm = [0.5,0.5]; this.vel=[0,0]; this.str=0; this.tstr=0; this.visible=false; this.last=null;
       el.addEventListener('pointermove', e => {
+        if(e.pointerType !== 'mouse') return; // no distortion from touch drags; the page should just scroll
         const b = el.getBoundingClientRect();
         const nx = (e.clientX-b.left)/b.width, ny = 1-(e.clientY-b.top)/b.height;
         if(this.last){ this.vel[0] += (nx-this.last[0])*1.4; this.vel[1] += (ny-this.last[1])*1.4; }
