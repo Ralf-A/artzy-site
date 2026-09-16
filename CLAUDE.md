@@ -15,7 +15,7 @@ Site for a car photographer (Tallinn), brand "ArtzyFoto". Static HTML, no build 
 - Each tile is a WebGL canvas (`class Tile` in the inline script). The fragment shader samples the tile's photo with cover-fit and applies a cursor-driven distortion: velocity-based UV warp, radial push, chromatic split (R/G/B sampled at 1×/1.35×/1.7× displacement), a halogen glow under the cursor, film grain and a vignette. Without a photo it falls back to a procedural scene per `data-scene`.
 - Tile markup: `data-src="img/<name>"` is the image base name; the script appends `-800.jpg` or `-2000.jpg` by rendered tile size and loads lazily on first intersection. `data-focus="x y"` (0–1, top-left origin, like CSS `object-position`) picks which part survives the crop. No WebGL → the 2000px JPEG becomes a CSS background.
 - `window.setTileImage(index, url)` still works for swapping a photo at runtime.
-- Custom cursor (`.cur`) that grows into a "VIEW" disc over tiles; hidden on touch devices.
+- No custom cursor. There was a "VIEW" disc once; it leaked onto phones and the owner asked for it gone. Hover feedback is the 6% canvas zoom plus the distortion.
 - Tiles only render while in viewport (IntersectionObserver); DPR capped at 1.5; `prefers-reduced-motion` disables the distortion.
 
 ## Images

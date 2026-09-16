@@ -1,16 +1,6 @@
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- cursor ---------- */
-  const cur = document.getElementById('cur');
-  let cx = innerWidth/2, cy = innerHeight/2, tx = cx, ty = cy;
-  const mouse = e => e.pointerType === 'mouse'; // touch and pen never drive the custom cursor
-  addEventListener('pointermove', e => { if(mouse(e)){ tx = e.clientX; ty = e.clientY; } });
-  document.querySelectorAll('.tile').forEach(t => {
-    t.addEventListener('pointerenter', e => { if(mouse(e)) cur.classList.add('big'); });
-    t.addEventListener('pointerleave', () => cur.classList.remove('big'));
-  });
-
   /* ---------- WebGL tiles ---------- */
   const VS = `attribute vec2 p; varying vec2 v; void main(){ v = p*0.5+0.5; gl_Position = vec4(p,0.,1.); }`;
   const FS = `
@@ -174,7 +164,6 @@
   const ro = new ResizeObserver(() => tiles.forEach(t=>t.resize())); tiles.forEach(t => ro.observe(t.el));
 
   function loop(t){
-    cx += (tx-cx)*.22; cy += (ty-cy)*.22; cur.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
     tiles.forEach(x => x.draw(t));
     requestAnimationFrame(loop);
   }
